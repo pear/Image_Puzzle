@@ -15,7 +15,7 @@
  * @author      Michal Felski <fela@fela.pl>
  * @license     http://www.php.net/license/3_0.txt  PHP License 3.0
  * @link        http://pear.php.net/package/Image_Puzzle
- * @version     $id$
+ * @version     $Id$
  */
 
 require_once 'Image/Puzzle/Edge.php';
