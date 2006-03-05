@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP Puzzle Maker.
+ * PEAR::Image_Puzzle
  *
  * PHP version 5
  *

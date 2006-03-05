@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP Puzzle Maker.
+ * PEAR::Image_Puzzle
  *
  * PHP version 5
  *
@@ -38,9 +38,9 @@ class Image_Puzzle_Edge_Arc extends Image_Puzzle_Edge {
 
     public function __construct($longitude, $transversal) {
         parent::__construct($longitude, $transversal);
-        $this->_factor = rand(85,95) /100;
-        $this->_radius = $longitude / 2 / sqrt(1-$this->_factor * $this->_factor);
-        $this->_side = rand()&1;
+        $this->_factor = rand(85, 95) / 100;
+        $this->_radius = $longitude / 2 / sqrt(1 - $this->_factor * $this->_factor);
+        $this->_side = rand() & 1;
     }
 
     public function getLeftTopMargin() {
@@ -55,10 +55,10 @@ class Image_Puzzle_Edge_Arc extends Image_Puzzle_Edge {
         $x = $x - $this->longitude / 2;
         if ($this->_side) {
             $y = $y - $this->_factor * $this->_radius;
-            return $x*$x + $y*$y < $this->_radius * $this->_radius;
+            return $x * $x + $y * $y < $this->_radius * $this->_radius;
         } else {
             $y = $y + $this->_factor * $this->_radius;
-            return $x*$x + $y*$y > $this->_radius * $this->_radius;
+            return $x * $x + $y * $y > $this->_radius * $this->_radius;
         }
     }
 }

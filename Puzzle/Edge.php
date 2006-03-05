@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP Puzzle Maker.
+ * PEAR::Image_Puzzle
  *
  * PHP version 5
  *
@@ -91,21 +91,20 @@ abstract class Image_Puzzle_Edge {
      */
     static public function factory($edgeName, $longitude, $transversal) {
         $edgeName = ucfirst($edgeName);
-        $edgeFile = "Image/Puzzle/Edge/$edgeName.php";
-        $edgeClass = "Image_Puzzle_Edge_$edgeName";
+        $edgeFile = 'Image/Puzzle/Edge/' . $edgeName . '.php';
+        $edgeClass = 'Image_Puzzle_Edge_' . $edgeName;
         if (!file_exists($edgeFile)) {
-            throw new PEAR_Exception("Unknown puzzle edge $edgeName");
+            throw new PEAR_Exception('Unknown puzzle edge ' . $edgeName);
         }
         require_once $edgeFile;
         if (!class_exists($edgeClass)) {
-            throw new PEAR_Exception("Edge $edgeName not found in $edgeFile");
+            throw new PEAR_Exception('Edge ' . $edgeName . ' not found in ' . $edgeFile);
         }
         $edge = new $edgeClass($longitude, $transversal);
         if (!$edge instanceof Image_Puzzle_Edge) {
-            throw new PEAR_Exception("Edge $edgeName does not implements edge interface");
+            throw new PEAR_Exception('Edge ' . $edgeName . ' does not implements edge interface');
         }
         return $edge;
     }
 }
-
 ?>

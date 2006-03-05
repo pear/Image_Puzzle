@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP Puzzle Maker.
+ * PEAR::Image_Puzzle
  *
  * PHP version 5
  *
@@ -38,10 +38,10 @@ class Image_Puzzle_Edge_Default extends Image_Puzzle_Edge {
 
     public function __construct($longitude, $transversal) {
         parent::__construct($longitude, $transversal);
-        $factor = rand(10,12) / 100;
+        $factor = rand(10, 12) / 100;
         $this->_longRadius = max($longitude, $transversal) * $factor;
         $this->_transRadius = min($longitude, $transversal) * $factor;
-        $this->_side = rand()&1;
+        $this->_side = rand() & 1;
     }
 
     public function getLeftTopMargin() {
@@ -64,7 +64,7 @@ class Image_Puzzle_Edge_Default extends Image_Puzzle_Edge {
     }
 
     private function _isInsideCircle($x, $y){
-        return $x*$x / $this->_longRadius / $this->_longRadius + $y * $y
+        return $x * $x / $this->_longRadius / $this->_longRadius + $y * $y
             / $this->_transRadius / $this->_transRadius < 1;
     }
 

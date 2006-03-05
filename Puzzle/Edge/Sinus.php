@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP Puzzle Maker.
+ * PEAR::Image_Puzzle
  *
  * PHP version 5
  *
@@ -38,8 +38,8 @@ class Image_Puzzle_Edge_Sinus extends Image_Puzzle_Edge {
 
     public function __construct($longitude, $transversal) {
         parent::__construct($longitude, $transversal);
-        $this->_periods = rand(3,6);
-        $this->_margin = $transversal * 0.08 * rand(8,12) / 10;
+        $this->_periods = rand(3, 6);
+        $this->_margin = $transversal * 0.08 * rand(8, 12) / 10;
     }
 
     public function getLeftTopMargin() {

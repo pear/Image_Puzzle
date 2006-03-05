@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP Puzzle Maker.
+ * PEAR::Image_Puzzle
  *
  * PHP version 5
  *
@@ -36,8 +36,8 @@ class Image_Puzzle_Edge_HalfCircle extends Image_Puzzle_Edge {
 
     public function __construct($longitude, $transversal) {
         parent::__construct($longitude, $transversal);
-        $this->_radius = min($longitude, $transversal) / rand(40,60) * 10;
-        $this->_side = rand()&1;
+        $this->_radius = min($longitude, $transversal) / rand(40, 60) * 10;
+        $this->_side = rand() & 1;
     }
 
     public function getLeftTopMargin() {
@@ -51,9 +51,9 @@ class Image_Puzzle_Edge_HalfCircle extends Image_Puzzle_Edge {
     public function isTransparent($x, $y) {
         $x = $x - $this->longitude / 2;
         if ($this->_side) {
-            return $x*$x + $y*$y < $this->_radius * $this->_radius;
+            return $x * $x + $y * $y < $this->_radius * $this->_radius;
         }
-        return $x*$x + $y*$y > $this->_radius * $this->_radius;
+        return $x * $x + $y * $y > $this->_radius * $this->_radius;
     }
 
 }

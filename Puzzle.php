@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP Puzzle Maker.
+ * PEAR::Image_Puzzle
  *
  * PHP version 5
  *
@@ -121,7 +121,7 @@ class Image_Puzzle
      * @return Image_Puzzle a new puzzle object
      */
     public function __construct($options = array()) {
-        foreach ($options as $key=>$value){
+        foreach ($options as $key => $value){
             if (in_array($key, array_keys($this->_options))) {
                 $this->_options[$key] = $value;
             }
@@ -136,7 +136,7 @@ class Image_Puzzle
      */
     public function createFromFile($filename) {
         if (!is_readable($filename)) {
-            throw new PEAR_Exception("Can't read from $filename.");
+            throw new PEAR_Exception('Cannot read from ' . $filename);
         }
         $size = getimagesize($filename);
         $this->_sourceWidth = $size[0];
@@ -154,10 +154,10 @@ class Image_Puzzle
      */
     public function getPiece($row, $col) {
         if ($row < 1 || $row > $this->_options['rows']) {
-            throw new PEAR_Exception("Illegal row number");
+            throw new PEAR_Exception('Illegal row number');
         }
         if ($col < 1 || $col > $this->_options['cols']) {
-            throw new PEAR_Exception("Illegal col number");
+            throw new PEAR_Exception('Illegal col number');
         }
         return $this->_pieces[$row - 1][$col - 1];
     }
@@ -217,24 +217,24 @@ class Image_Puzzle
         $edge = Image_Puzzle_Edge::factory('line', $pieceWidth, $pieceHeight);
         for ($col = 0; $col < $this->_options['cols']; $col++){
             $this->_pieces[0][$col]->setTopEdge($edge);
-            $this->_pieces[$this->_options['rows']-1][$col]->setBottomEdge($edge);
+            $this->_pieces[$this->_options['rows'] - 1][$col]->setBottomEdge($edge);
         }
         $edge = Image_Puzzle_Edge::factory('line', $pieceHeight, $pieceWidth);
         for ($row = 0; $row < $this->_options['rows']; $row++){
             $this->_pieces[$row][0]->setLeftEdge($edge);
-            $this->_pieces[$row][$this->_options['cols']-1]->setRightEdge($edge);
+            $this->_pieces[$row][$this->_options['cols'] - 1]->setRightEdge($edge);
         }
-        for ($col = 0; $col < $this->_options['cols']-1; $col++){
+        for ($col = 0; $col < $this->_options['cols'] - 1; $col++){
             for ($row = 0; $row < $this->_options['rows']; $row++){
                 $edge = Image_Puzzle_Edge::factory($this->_options['edge'], $pieceHeight, $pieceWidth);
-                $this->_pieces[$row][$col+1]->setLeftEdge($edge);
+                $this->_pieces[$row][$col + 1]->setLeftEdge($edge);
                 $this->_pieces[$row][$col]->setRightEdge($edge);
             }
         }
         for ($col = 0; $col < $this->_options['cols']; $col++){
-            for ($row = 0; $row < $this->_options['rows']-1; $row++){
+            for ($row = 0; $row < $this->_options['rows'] - 1; $row++){
                 $edge = Image_Puzzle_Edge::factory($this->_options['edge'], $pieceWidth, $pieceHeight);
-                $this->_pieces[$row+1][$col]->setTopEdge($edge);
+                $this->_pieces[$row + 1][$col]->setTopEdge($edge);
                 $this->_pieces[$row][$col]->setBottomEdge($edge);
             }
         }
