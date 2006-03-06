@@ -65,7 +65,11 @@ class Image_Puzzle_Piece {
      */
     private $_image;
 
-
+    /**
+     * Cached margins for each edge
+     *
+     * @var integer
+     */
     private $_marginCache = array();
 
     /**
@@ -75,6 +79,11 @@ class Image_Puzzle_Piece {
      */
     private $_edges = array('Top' => null, 'Bottom' => null, 'Left' => null, 'Right' => null);
 
+    /**
+     * Cached transparent color allocated by GD
+     *
+     * @var integer color identifier representing a transparent color
+     */
     private $_transparentColor;
 
     /**
