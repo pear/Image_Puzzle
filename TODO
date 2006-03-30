@@ -2,7 +2,7 @@ TODO
 
 0.2.0 release
 - customize Image_Puzzle::createFromFile() method to read all suported by GD
-image types instant jpg only
+image types instead of jpg only
 
 1.0.0 release
 - unit tests

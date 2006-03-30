@@ -108,6 +108,20 @@ class Image_Puzzle
     private $_pieces;
 
     /**
+     * Array of supported image types
+     *
+     * @var array
+     */
+    private $_supportedTypes = array(
+        IMAGETYPE_GIF       => 'gif',
+        IMAGETYPE_JPEG      => 'jpeg',
+        IMAGETYPE_JPEG2000  => 'jpeg',
+        IMAGETYPE_PNG       => 'png',
+        IMAGETYPE_WBMP      => 'wbmp',
+        IMAGETYPE_XBM       => 'xbm'
+    );
+
+    /**
      * Puzzle object constructor. Options parameter is optional.
      * It allow to set how puzzle will be generated.<br />
      * Available options are :<br />
@@ -136,12 +150,17 @@ class Image_Puzzle
      */
     public function createFromFile($filename) {
         if (!is_readable($filename)) {
-            throw new PEAR_Exception('Cannot read from ' . $filename);
+            throw new PEAR_Exception('cannot read from ' . $filename);
         }
-        $size = getimagesize($filename);
-        $this->_sourceWidth = $size[0];
-        $this->_sourceHeight = $size[1];
-        $this->_source = imagecreatefromjpeg($filename);
+        $info = getimagesize($filename);
+        $this->_sourceWidth = $info[0];
+        $this->_sourceHeight = $info[1];
+        $type = $info[2];
+        if (!$this->_isFileTypeSuported($type)) {
+            throw new PEAR_Exception('unsuported image type ' . $filename);
+        }
+        $imageFunction = 'imagecreatefrom' . $this->_supportedTypes[$type];
+        $this->_source = $imageFunction($filename);
         $this->_createPuzzle();
     }
 
@@ -177,6 +196,16 @@ class Image_Puzzle
                 $this->_pieces[$row][$col]->save($filename);
 			}
 		}
+    }
+
+    /**
+     * Check supporting image type by GD library
+     *
+     * @param integer $type
+     * @return boolean
+     */
+    private function _isFileTypeSuported($type) {
+        return ((imagetypes() & $type) == $type && isset($this->_supportedTypes[$type]));
     }
 
     /**
