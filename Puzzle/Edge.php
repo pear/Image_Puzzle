@@ -102,7 +102,7 @@ abstract class Image_Puzzle_Edge {
         }
         $edge = new $edgeClass($longitude, $transversal);
         if (!$edge instanceof Image_Puzzle_Edge) {
-            throw new PEAR_Exception('Edge ' . $edgeName . ' does not implements edge interface');
+            throw new PEAR_Exception('Edge ' . $edgeName . ' does not implement edge interface');
         }
         return $edge;
     }

@@ -30,10 +30,18 @@
  */
 class Image_Puzzle_Edge_Line extends Image_Puzzle_Edge {
 
+    /**
+     * @return integer
+     * @see Image_Puzzle_Edge::getLeftTopMargin()
+     */
     public function getLeftTopMargin() {
         return 0;
     }
 
+    /**
+     * @return integer
+     * @see Image_Puzzle_Edge::getRightBottomMargin()
+     */
     public function getRightBottomMargin() {
         return 0;
     }

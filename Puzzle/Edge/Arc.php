@@ -30,12 +30,32 @@
  */
 class Image_Puzzle_Edge_Arc extends Image_Puzzle_Edge {
 
+    /**
+     * Value of random radius
+     *
+     * @var float
+     */
     private $_radius = 0;
 
+    /**
+     * Random side on which edge is convex
+     *
+     * @var integer 0 | 1
+     */
     private $_side = 0;
 
+    /**
+     * Random factor to customize random radius
+     *
+     * @var float
+     */
     private $_factor;
 
+    /**
+     * @param integer $longitude
+     * @param integer $transversal
+     * @see Image_Puzzle_Edge::__construct()
+     */
     public function __construct($longitude, $transversal) {
         parent::__construct($longitude, $transversal);
         $this->_factor = rand(85, 95) / 100;
@@ -43,14 +63,28 @@ class Image_Puzzle_Edge_Arc extends Image_Puzzle_Edge {
         $this->_side = rand() & 1;
     }
 
+    /**
+     * @return integer
+     * @see Image_Puzzle_Edge::getLeftTopMargin()
+     */
     public function getLeftTopMargin() {
         return (1 - $this->_factor) * $this->_radius * !$this->_side;
     }
 
+    /**
+     * @return integer
+     * @see Image_Puzzle_Edge::getRightBottomMargin()
+     */
     public function getRightBottomMargin() {
         return (1 - $this->_factor) * $this->_radius * $this->_side;
     }
 
+    /**
+     * @param integer $x
+     * @param integer $y
+     * @return boolean
+     * @see Image_Puzzle_Edge::isTransparent()
+     */
     public function isTransparent($x, $y) {
         $x = $x - $this->longitude / 2;
         if ($this->_side) {
