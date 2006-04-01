@@ -91,12 +91,11 @@ abstract class Image_Puzzle_Edge {
      */
     static public function factory($edgeName, $longitude, $transversal) {
         $edgeName = ucfirst($edgeName);
-        $edgeFile = 'Image/Puzzle/Edge/' . $edgeName . '.php';
         $edgeClass = 'Image_Puzzle_Edge_' . $edgeName;
-        if (!file_exists($edgeFile)) {
+        if (!file_exists(dirname(__FILE__) . '/Edge/' . $edgeName . '.php')) {
             throw new PEAR_Exception('Unknown puzzle edge ' . $edgeName);
         }
-        require_once $edgeFile;
+        require_once 'Image/Puzzle/Edge/' . $edgeName . '.php';
         if (!class_exists($edgeClass)) {
             throw new PEAR_Exception('Edge ' . $edgeName . ' not found in ' . $edgeFile);
         }
