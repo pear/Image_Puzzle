@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
-<package version="1.0" packagerversion="1.4.7">
+<package version="1.0" packagerversion="1.4.9">
  <name>Image_Puzzle</name>
  <summary>Generates puzzle pieces from image file</summary>
- <description>PEAR::Image_Puzzle divides an image to puzzle pieces. It contains an edges factory which allows to choose an edge style. Each edge is described by a small class. In the future there should be more edges with more flexible own parameters.
+ <description>PEAR::Image_Puzzle divides an image to puzzle pieces.
+
+
+
+* Provides a few edge styles to generate puzzle pieces
+
+* Allow saving each piece to separate files
+
+* Allow getting information about each piece coordinates accoring to original image
  </description>
  <maintainers>
   <maintainer>
@@ -14,11 +22,11 @@
   </maintainer>
   </maintainers>
  <release>
-  <version>0.1.0</version>
-  <date>2006-03-05</date>
+  <version>0.2.0</version>
+  <date>2006-04-01</date>
   <license>PHP License</license>
   <state>alpha</state>
-  <notes>Initial development release
+  <notes>Added supporting for creating puzzle from other images the JPG type
   </notes>
   <deps>
    <dep type="pkg" rel="ge" version="1.4" optional="no">PEAR</dep>
@@ -64,6 +72,14 @@
     <license>PHP License</license>
     <state>alpha</state>
     <notes>Initial development release
+    </notes>
+   </release>
+   <release>
+    <version>0.2.0</version>
+    <date>2006-04-01</date>
+    <license>PHP License</license>
+    <state>alpha</state>
+    <notes>Added supporting for creating puzzle from other images the JPG type
     </notes>
    </release>
  </changelog>
