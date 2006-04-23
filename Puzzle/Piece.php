@@ -84,7 +84,14 @@ class Image_Puzzle_Piece {
      *
      * @var integer color identifier representing a transparent color
      */
-    private $_transparentColor;
+    private $_transparentColor = null;
+
+    /**
+     * Array of file extensions which support transparent color
+     *
+     * @var array
+     */
+    private $_supportedFileTypes = array('gif', 'png');
 
     /**
      * Constructor
@@ -99,6 +106,10 @@ class Image_Puzzle_Piece {
         $this->_top = $top;
         $this->_width = $width;
         $this->_height = $height;
+    }
+
+    public function __destruct() {
+        imagedestroy($this->_image);
     }
 
     /**
@@ -192,7 +203,15 @@ class Image_Puzzle_Piece {
      * @param string $filename
      */
     public function save($filename) {
-        imagegif($this->_image, $filename);
+        $ext = $this->_getFileExtension($filename);
+        if (!in_array($ext, $this->_supportedFileTypes)) {
+            throw new PEAR_Exception('could not save to file which not support transparent color');
+        }
+        if ($ext == 'gif') {
+            imagetruecolortopalette($this->_image, false, 256);
+        }
+        $saveFunction = 'image' . $ext;
+        $saveFunction($this->_image, $filename);
     }
 
     /**
@@ -226,7 +245,7 @@ class Image_Puzzle_Piece {
         $conversion = new Image_Color2($color);
         $rgb = $conversion->getRgb();
         $this->_transparentColor = imagecolorallocate($this->_image, $rgb[0], $rgb[1], $rgb[2]);
-        imagecolortransparent($this->_image, $this->_transparentColor);
+        $this->_transparentColor = imagecolortransparent($this->_image, $this->_transparentColor);
     }
 
     /**
@@ -365,6 +384,16 @@ class Image_Puzzle_Piece {
      */
     private function _setPixelTransparent($x, $y) {
         imagesetpixel($this->_image, $x, $y, $this->_transparentColor);
+    }
+
+    /**
+     * returns file extension of saved image file
+     *
+     * @param string $filename
+     * @return string
+     */
+    private function _getFileExtension($filename) {
+        return strtolower(substr($filename, strrpos($filename, '.') + 1));
     }
 }
 ?>
