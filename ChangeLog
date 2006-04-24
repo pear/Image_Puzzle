@@ -1,5 +1,10 @@
 Change Log
 
+0.2.1
+- changed saving files to proper type according to given extension
+- checking saved file extension if supports transparent color
+- fixed saving gif files by setting number of colors to 255
+
 0.2.0
 - added supporting for creating puzzle from other images then JPG.
 

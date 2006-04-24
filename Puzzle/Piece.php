@@ -255,7 +255,7 @@ class Image_Puzzle_Piece {
      */
     private function _makeEdgeTransparent($edgeName) {
         for ($i = 0; $i <= $this->_getEdgeLength($edgeName); $i++){
-            for ($j = - $this->_marginCache[$edgeName]['RightBottom']; $j <= $this->_marginCache[$edgeName]['LeftTop']; $j++) {
+            for ($j = - $this->_marginCache[$edgeName]['RightBottom'] + 1; $j <= $this->_marginCache[$edgeName]['LeftTop']; $j++) {
                 $this->_makeEdgePointTransparent($edgeName, $i, $j);
             }
         }
@@ -371,8 +371,8 @@ class Image_Puzzle_Piece {
      */
     private function _setEdge($edgeName, Image_Puzzle_Edge $edge) {
         $this->_edges[$edgeName] = $edge;
-        $this->_marginCache[$edgeName]['LeftTop'] = $edge->getLeftTopMargin();
-        $this->_marginCache[$edgeName]['RightBottom'] = $edge->getRightBottomMargin();
+        $this->_marginCache[$edgeName]['LeftTop'] = round($edge->getLeftTopMargin());
+        $this->_marginCache[$edgeName]['RightBottom'] = round($edge->getRightBottomMargin());
     }
 
     /**
