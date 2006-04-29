@@ -22,11 +22,15 @@
   </maintainer>
   </maintainers>
  <release>
-  <version>0.2.0</version>
-  <date>2006-04-01</date>
+  <version>0.2.1</version>
+  <date>2006-04-29</date>
   <license>PHP License</license>
-  <state>alpha</state>
-  <notes>Added supporting for creating puzzle from other images the JPG type
+  <state>beta</state>
+  <notes>- changed saving files to proper file type according to given extension
+
+			    - checking if type supports transparent colour
+
+			    - fixed saving gif by limiting number of coulour to 256
   </notes>
   <deps>
    <dep type="pkg" rel="ge" version="1.4" optional="no">PEAR</dep>
@@ -80,6 +84,18 @@
     <license>PHP License</license>
     <state>alpha</state>
     <notes>Added supporting for creating puzzle from other images the JPG type
+    </notes>
+   </release>
+   <release>
+    <version>0.2.1</version>
+    <date>2006-04-29</date>
+    <license>PHP License</license>
+    <state>beta</state>
+    <notes>- changed saving files to proper file type according to given extension
+
+			    - checking if type supports transparent colour
+
+			    - fixed saving gif by limiting number of coulour to 256
     </notes>
    </release>
  </changelog>
