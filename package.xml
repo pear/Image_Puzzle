@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
-<package version="1.0" packagerversion="1.4.9">
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>Image_Puzzle</name>
+ <channel>pear.php.net</channel>
  <summary>Generates puzzle pieces from image file</summary>
  <description>PEAR::Image_Puzzle divides an image to puzzle pieces.
 
@@ -11,92 +11,130 @@
 
 * Allow saving each piece to separate files
 
-* Allow getting information about each piece coordinates accoring to original image
- </description>
- <maintainers>
-  <maintainer>
-   <user>fela</user>
-   <name>Michal Felski</name>
-   <email>fela@php.net</email>
-   <role>lead</role>
-  </maintainer>
-  </maintainers>
- <release>
-  <version>0.2.1</version>
-  <date>2006-04-29</date>
-  <license>PHP License</license>
-  <state>beta</state>
-  <notes>- changed saving files to proper file type according to given extension
-
-			    - checking if type supports transparent colour
-
-			    - fixed saving gif by limiting number of coulour to 256
-  </notes>
-  <deps>
-   <dep type="pkg" rel="ge" version="1.4" optional="no">PEAR</dep>
-   <dep type="pkg" rel="ge" version="0.1.0" optional="no">Image_Color2</dep>
-  </deps>
-  <filelist>
-   <dir name="/" baseinstalldir="Image">
-    <dir name="Puzzle">
-     <dir name="Edge">
-      <file role="php" name="Arc.php">
-       <replace type="package-info" from="@package_version@" to="version"/>
-      </file>
-      <file role="php" name="Default.php">
-       <replace type="package-info" from="@package_version@" to="version"/>
-      </file>
-      <file role="php" name="HalfCircle.php">
-       <replace type="package-info" from="@package_version@" to="version"/>
-      </file>
-      <file role="php" name="Line.php">
-       <replace type="package-info" from="@package_version@" to="version"/>
-      </file>
-      <file role="php" name="Sinus.php">
-       <replace type="package-info" from="@package_version@" to="version"/>
-      </file>
-     </dir> <!-- /Puzzle/Edge -->
-     <file role="php" name="Edge.php">
-      <replace type="package-info" from="@package_version@" to="version"/>
-     </file>
-     <file role="php" name="Piece.php">
-      <replace type="package-info" from="@package_version@" to="version"/>
-     </file>
-    </dir> <!-- /Puzzle -->
-    <file role="php" name="Puzzle.php">
-     <replace type="package-info" from="@package_version@" to="version"/>
-    </file>
-   </dir> <!-- / -->
-  </filelist>
- </release>
+* Allow getting information about each piece coordinates accoring to original image</description>
+ <lead>
+  <name>Michal Felski</name>
+  <user>fela</user>
+  <email>fela@php.net</email>
+  <active>yes</active>
+ </lead>
+ <date>2010-10-24</date>
+ <time>15:46:47</time>
+ <version>
+  <release>0.2.2</release>
+  <api>0.2.1</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.php.net/license">PHP License</license>
+ <notes>
+QA release
+Package 2.0
+SVN dir layout
+ </notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="/" md5sum="7efc6ef9f17b50f823faab53b556a7af" name="Image/Puzzle.php" role="php" />
+   <file baseinstalldir="/" md5sum="3bc120e0d7f8700fb8d7dcee5a922e65" name="Image/Puzzle/Edge.php" role="php" />
+   <file baseinstalldir="/" md5sum="b8700b20970fd0a6819a49275a8d5a56" name="Image/Puzzle/Piece.php" role="php" />
+   <file baseinstalldir="/" md5sum="17b9fe342e5f7f6cb943fa6a9d1b3eff" name="Image/Puzzle/Edge/Arc.php" role="php" />
+   <file baseinstalldir="/" md5sum="174727deaa6d8d13488112d5e028badd" name="Image/Puzzle/Edge/Default.php" role="php" />
+   <file baseinstalldir="/" md5sum="cefd540d07c908da1e9e3018a83cd0f6" name="Image/Puzzle/Edge/HalfCircle.php" role="php" />
+   <file baseinstalldir="/" md5sum="ed7eaa1b459a69d4c22662da65ec0d8b" name="Image/Puzzle/Edge/Line.php" role="php" />
+   <file baseinstalldir="/" md5sum="7ecfb47871197f600a8fb487d401eb3e" name="Image/Puzzle/Edge/Sinus.php" role="php" />
+   <file baseinstalldir="/" md5sum="6d1bb9aa9afd9310cbf513bdcdff701b" name="ChangeLog" role="data" />
+   <file baseinstalldir="/" md5sum="a21e68b5f6a60104d041f2e04245c8e1" name="TODO" role="data" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.0.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0b1</min>
+   </pearinstaller>
+   <package>
+    <name>PEAR</name>
+    <channel>pear.php.net</channel>
+    <min>1.4</min>
+   </package>
+   <package>
+    <name>Image_Color2</name>
+    <channel>pear.php.net</channel>
+    <min>0.1.0</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
  <changelog>
-   <release>
-    <version>0.1.0</version>
-    <date>2006-03-05</date>
-    <license>PHP License</license>
-    <state>alpha</state>
-    <notes>Initial development release
-    </notes>
-   </release>
-   <release>
-    <version>0.2.0</version>
-    <date>2006-04-01</date>
-    <license>PHP License</license>
-    <state>alpha</state>
-    <notes>Added supporting for creating puzzle from other images the JPG type
-    </notes>
-   </release>
-   <release>
-    <version>0.2.1</version>
-    <date>2006-04-29</date>
-    <license>PHP License</license>
-    <state>beta</state>
-    <notes>- changed saving files to proper file type according to given extension
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2006-03-05</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+Initial development release
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.2.0</release>
+    <api>0.2.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2006-04-01</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+Added supporting for creating puzzle from other images the JPG type
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.2.1</release>
+    <api>0.2.1</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2006-04-29</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+- changed saving files to proper file type according to given extension
 
 			    - checking if type supports transparent colour
 
 			    - fixed saving gif by limiting number of coulour to 256
-    </notes>
-   </release>
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.2.2</release>
+    <api>0.2.1</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2010-10-24</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+QA release
+Package 2.0
+SVN dir layout
+   </notes>
+  </release>
  </changelog>
 </package>
