@@ -1,0 +1,31 @@
+{
+    "authors": [
+        {
+            "email": "fela@php.net",
+            "name": "Michal Felski",
+            "role": "Lead"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Image_Puzzle": "./"
+        }
+    },
+    "description": "More info available on: http://pear.php.net/package/Image_Puzzle",
+    "include-path": [
+        "./"
+    ],
+    "license": "PHP License",
+    "name": "pear/image_puzzle",
+    "support": {
+        "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Image_Puzzle",
+        "source": "https://github.com/pear/Image_Puzzle"
+    },
+    "type": "library",
+    "require": {
+        "pear/pear_exception": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}
